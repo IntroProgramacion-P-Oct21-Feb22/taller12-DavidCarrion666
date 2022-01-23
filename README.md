@@ -9,20 +9,27 @@ public class Ejemplo00 {
     public static void main(String[] args) {
         int[] datos = {10, 2, 4, 1};
         System.out.printf("%d\n", misterio(datos, datos.length));
+                                        //  [], 4
     }
 
     public static int misterio(int[] arreglo, int tamanio) {
 
-        if (tamanio == 1) {
-            return arreglo[0];
+        if (tamanio == 1) { // F // F // F // T
+            return arreglo[0]; // 10 --> se usa el valor para resolver el ultimo valor del arreglo
         } else {
             return arreglo[tamanio - 1] + misterio(arreglo, tamanio - 1);
+                        //  1 + ([], 3) // 16 + 1 = 17
+                        //  4 + ([], 2) // 12 + 4 = 16
+                        //  2 + ([], 1) // 10 + 2 = 12
+                        //  2 + 10  ---> se empieza a resolver al revez
         }
     }
 
 }
 ```
 #### Respuesta aquí
+
+La respuesta es 17, debido a que los valores dentro del arreglo entran en un metodo recursivo que procede a sumarlos
 
 #### Fin respuesta
 
